@@ -182,14 +182,21 @@ nav {
  
     padding: 40px 0;
     text-align: start;
+    max-height: 50px;
+    display: flex;
+    justify-content: space-between; /* Распределить пространство между элементами по горизонтали */
+    align-items: center; /* Отцентрировать элементы по вертикали */
     
 }
+
+
 
 .navigation {
     list-style: none;
     padding: 0;
     margin: 0;
     margin-left: 30px;
+    justify-content: space-between;
 }
 
 .navigation li {
@@ -236,31 +243,6 @@ h1 {
     margin: 0;
 }
 
-.burger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.line {
-    width: 30px;
-    height: 3px;
-    background-color: #fff;
-    margin: 3px 0;
-    transition: transform 0.4s, opacity 0.4s;
-}
-
-.burger.active .line:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.burger.active .line:nth-child(2) {
-    opacity: 0;
-}
-
-.burger.active .line:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
 
 .sidebar {
     background-color: #444;
@@ -314,6 +296,7 @@ h1 {
     margin: 20px;
     transition: 0.5s;
     position: relative;
+    height: 450px;
 
 }
 
@@ -381,70 +364,75 @@ h1 {
     flex-wrap: wrap;
     justify-content: space-between;
 }
- 
 
+ /* Еду в магазин гучи в сантк-петерсбурге */
 
-
-
-/* ------------Бургер----------------------- */
 .burger-menu {
-    display: flex;
-    justify-content: flex-end; /* Выравниваем бургер справа */
-    align-items: center; /* Выравниваем вертикально по центру */
-    height: 50px; /* Устанавливаем фиксированную высоту для бургера */
-    padding-right: 20px; /* Добавляем отступ справа */
-    cursor: pointer;
-    z-index: 9999; /* Устанавливаем высокий z-index для бургера */
-    position: fixed; /* Фиксируем бургер в правом верхнем углу */
-    top: 30px;
-    right: 0;
+    display: flex; /* Отобразить бургер-меню как flex-контейнер */
+    align-items: center; /* Отцентрировать бургер по вертикали */
 }
 
+/* Стили для бургер-иконки (трех горизонтальных линий) */
 .burger {
+    width: 30px; /* Ширина иконки */
+    height: 20px; /* Высота иконки */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 30px;
-    height: 20px;
-    z-index: 1;
+    cursor: pointer; /* Курсор меняется на указатель при наведении */
+    margin-right: 13px;
 }
 
 .line {
-    width: 100%;
-    height: 3px;
-    background-color: #fff;
-    transition: transform 0.4s, opacity 0.4s;
+    width: 100%; /* Ширина горизонтальных линий равна ширине родительской иконки */
+    height: 3px; /* Высота горизонтальных линий */
+    background-color: #fff; /* Цвет горизонтальных линий (настройте по своему усмотрению) */
 }
 
-/* Анимация для бургера */
-.burger.active .line:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+
+
+
+.menu.active {
+    display: block; /* Отображаем меню, когда есть класс 'active' */
+    z-index: 9999; /* Также устанавливаем высокий z-index для активного меню */
+    
 }
 
-.burger.active .line:nth-child(2) {
-    opacity: 0;
+.menu ul {
+    list-style: none;
+    padding: 0;
 }
 
-.burger.active .line:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+.menu li {
+    margin-bottom: 5px;
 }
+
+.menu a {
+    text-decoration: none;
+    color: #f3efef;
+}
+
 
 /* Стили для выпадающего меню */
 .menu {
-    display: none; /* Начальное скрытое состояние меню */
+    display: none;
     position: absolute;
-    top: 50px; /* Располагаем меню под бургером */
+    /* top: 20px;   */
+    vertical-align: text-bottom;
     right: 20px;
     background-color: rgb(44, 43, 43);
     border: 1px solid #ccc;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 9998; /* Устанавливаем высокий z-index, чтобы меню было поверх остальных элементов */
+    z-index: 9998; /* Устанавливаем высокий z-index для меню */
+    transform: translateX(100%);
+    transition: transform 0.4s; /* Добавляем анимацию смещения */
+    margin-top: 250px;
 }
 
 .menu.active {
-    display: block; /* Отображаем меню, когда есть класс 'active' */
-    z-index: 9999; /* Также устанавливаем высокий z-index для активного меню */
+    transform: translateX(0); /* При активации меню сдвигаем его обратно */
+    z-index: 9999; /* Устанавливаем высокий z-index для активного меню */
 }
 
 .menu ul {

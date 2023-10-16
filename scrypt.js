@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const noButton = document.querySelector(".no");
     const firstWindow = document.querySelector(".firstwindow");
     const warning = document.querySelector(".warning");
-    const all_content = document.querySelector(".all_content");
-    const intro = document.getElementById("intro"); // Получаем элемент анимации
+    const allContent = document.querySelector(".all_content");
+    const intro = document.getElementById("intro");
 
     // Проверяем, есть ли в локальном хранилище метка о том, что анимацию уже показали
     const animationShown = localStorage.getItem("animationShown");
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (animationShown) {
         // Если анимацию уже показали, скрываем ее
         intro.style.display = "none";
-        all_content.style.display = "block"; // Отображаем контент
+        allContent.style.display = "block"; // Отображаем контент
     } else {
         // Если анимацию еще не показывали
         yesButton.addEventListener("click", function () {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 firstWindow.style.display = "none";
             }, 500);
             setTimeout(() => {
-                all_content.style.display = "block";
+                allContent.style.display = "block";
             }, 800);
 
             // Сохраняем метку о том, что анимацию уже показали
@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
 
 
 // бургер
